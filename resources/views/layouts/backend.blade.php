@@ -33,7 +33,21 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/daterangepicker/daterangepicker-bs3.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <!-- jQuery 2.1.4 -->
+  <script src="{{ asset('adminlte/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
+  {{-- toaster --}}
+  <script src="{{ asset('toaster/toastr.min.js')}}"></script>
+  <link rel="stylesheet" href="{{ asset('toaster/toastr.min.css')}}">
+  
+  {{-- toaster --}}
+  <style>
+    .toast {
+    opacity: 1 !important;
+    }
+  </style>
+
   </head>
+
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       
@@ -360,7 +374,7 @@
       </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="{{ asset('adminlte/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
+    {{-- <script src="{{ asset('adminlte/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script> --}}
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     {{-- <script src="{{ asset('adminlte/plugins/jQuery/ui/1.11.4/jquery-ui.min.js')}}"></script> --}}
@@ -397,5 +411,28 @@
     <script src="{{ asset('adminlte/dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
+
+    <Script>
+      @if(Session::has('message'))
+          var type = "{{ Session::get('alert-type', 'info') }}";
+          switch(type){
+              case 'info':
+                  toastr.info("{{ Session::get('message') }}");
+                  break;
+    
+              case 'warning':
+                  toastr.warning("{{ Session::get('message') }}");
+                  break;
+    
+              case 'success':
+                  toastr.success("{{ Session::get('message') }}");
+                  break;
+    
+              case 'error':
+                  toastr.error("{{ Session::get('message') }}");
+                  break;
+          }
+      @endif
+    </Script>
   </body>
 </html>
