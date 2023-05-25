@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <!-- jQuery 2.1.4 -->
   <script src="{{ asset('adminlte/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.css')}}">
   {{-- toaster --}}
   <script src="{{ asset('toaster/toastr.min.js')}}"></script>
   <link rel="stylesheet" href="{{ asset('toaster/toastr.min.css')}}">
@@ -345,19 +347,19 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">TOP SECTION</li>
+            <li class="header">SECTION-A</li>
             <li><a href="{{route('home')}}"><i class="fa fa-home" aria-hidden="true"></i> <span>Home</span></a></li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-table"></i> <span>Menu</span>
+                <i class="fa fa-user" aria-hidden="true"></i> <span>Users</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                <li><a href="{{ route('add.user') }}"><i class="fa fa-circle-o"></i> Add User</a></li>
+                <li><a href="{{ route('all.users') }}"><i class="fa fa-circle-o"></i> All Users</a></li>
               </ul>
             </li>
-            <li class="header">BOTTOM SECTION</li>
+            <li class="header">SECTION-B</li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
           </ul>
         </section>
@@ -411,6 +413,9 @@
     <script src="{{ asset('adminlte/dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
+    <!-- DataTables -->
+    <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 
     <Script>
       @if(Session::has('message'))
