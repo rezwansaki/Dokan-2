@@ -271,18 +271,22 @@
                     <p>
                       {{ Auth::user()->name }}
                       <small>
-                        <?php 
-                          $roleId = Auth::user()->role;
-                          if($roleId == 2){
-                          ?>
-                            <span class="badge" style="background-color:aqua; color:#333">Super Admin</span>
-                          <?php 
-                          }elseif($roleId == 1){
-                            echo 'Admin';
-                          }elseif($roleId == 0){
-                            echo 'User';
-                          }
-                        ?>
+                        <?php
+                            $user_role = Auth::user()->role;
+                            if($user_role == 2){
+                            ?>
+                                <span class="badge" style="background-color:aqua; color:#333">Super Admin</span>
+                            <?php
+                            }elseif($user_role == 1){
+                            ?>
+                                <span class="badge" style="background-color:rgb(12, 206, 109); color:#333">Admin</span>
+                            <?php
+                            }else{
+                            ?>
+                                <span class="badge" style="background-color:rgb(230, 218, 50); color:#333">User</span>
+                            <?php
+                            }
+                            ?>
                       </small>
                   </li>
                   <!-- Menu Body -->

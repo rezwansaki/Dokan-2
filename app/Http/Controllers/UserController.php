@@ -74,7 +74,7 @@ class UserController extends Controller
                         'message' => 'Successfully User Inserted',
                         'alert-type' => 'success'
                     );
-                    return Redirect()->route('home')->with($notification);
+                    return Redirect()->route('all.users')->with($notification);
                 } else {
                     $notification = array(
                         'message' => 'Error',
