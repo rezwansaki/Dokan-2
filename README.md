@@ -46,7 +46,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Project Version:
 
-1.0.1
+1.0.2
 
 ### Start Date:
 
@@ -54,7 +54,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Last Update:
 
-25-May-2023
+26-May-2023
 
 ### Developed by:
 
