@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InstallController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 
 // installation routes
@@ -28,3 +29,6 @@ Route::get('/edit-user/{id}', [UserController::class, 'editUser']);
 Route::post('/update-user/{id}', [UserController::class, 'updateUser']);
 Route::get('/delete-user/{id}', [UserController::class, 'deleteUser']);
 Route::get('/view-single-user/{id}', [UserController::class, 'viewSingleUser']);
+
+// settings routes here 
+Route::get('/show/settings', [SettingsController::class, 'index'])->name('show.settings');

@@ -68,7 +68,18 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputRole">Role</label>
-                    <input type="text" class="form-control" id="exampleInputRole" value="{{ $user->role }}"  name="role">
+                    <select id="exampleInputRole" class="form-select" aria-label="Default select example" name="role" required>
+                      <?php 
+                         $role = ['User','Admin','Super Admin'];
+                         $userRole = $role[$user->role];
+                      ?>
+                      <option hidden="hidden" value="{{$user->role}}" selected><?php echo $userRole; ?></option>                      
+                      <option value="0">User</option>
+                      <option value="1">Admin</option>
+                      @if(Auth::user()->role == 2)
+                      <option value="2">Super Admin</option>
+                      @endif
+                    </select>
                   </div>
                 </div><!-- /.box-body -->
 

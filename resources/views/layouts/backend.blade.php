@@ -364,7 +364,7 @@
               </ul>
             </li>
             <li class="header">SECTION-B</li>
-            <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+            <li><a href="{{ route('show.settings') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
           </ul>
         </section>
         <!-- /.sidebar -->
