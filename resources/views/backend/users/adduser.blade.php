@@ -109,4 +109,23 @@ function readURL(input) {
     }
 }
 </script>
+
+<script>
+  $(document).ready(function() {
+  $("select#exampleInputRole").change(function() {
+    var selectedRole = $("#exampleInputRole option:selected").text();
+    if (selectedRole == "Super Admin") {
+      Swal.fire({
+          title: 'You are selected Super Admin as an user role.',
+          text: "Are you sure?",
+          icon: 'warning',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'OK!'
+      })
+    } 
+  });
+});
+</script>
 @endsection

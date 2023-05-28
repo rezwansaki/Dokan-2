@@ -69,7 +69,7 @@
                         <td> 
                             <a href="{{url('/view-single-user/'.$row->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{{url('/edit-user/'.$row->id)}}" class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <a href="{{url('/delete-user/'.$row->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            <a href="{{url('/delete-user/'.$row->id)}}" class="btn btn-sm btn-danger" id="user-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -120,4 +120,33 @@ function readURL(input) {
     }
 }
 </script>
+
+<script>
+  $(document).on("click", "#user-delete", function(e){
+      e.preventDefault();
+      var link = $(this).attr("href");
+      Swal.fire({
+          title: 'Are you sure, you want to delete the user?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+      })
+      .then((result)=> {
+          if (result.value) {
+              window.location.href = link; 
+          } else {
+            swal.fire(
+                'Cancelled',
+                'Your data is safe :)',
+                'error'
+            )
+          }
+      });
+  });
+</script>
+
+
 @endsection

@@ -48,6 +48,10 @@
     }
   </style>
 
+  {{-- sweet alert --}}  
+  <script src="{{ asset('sweetalert/sweetalert2.all.min.js')}}"></script>
+  <link rel="stylesheet" href="{{ asset('sweetalert/sweetalert2.min.css')}}">
+
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
