@@ -32,3 +32,4 @@ Route::get('/view-single-user/{id}', [UserController::class, 'viewSingleUser']);
 
 // settings routes here 
 Route::get('/show/settings', [SettingsController::class, 'index'])->name('show.settings');
+Route::post('/update-settings/{id}', [SettingsController::class, 'updateSettings']);

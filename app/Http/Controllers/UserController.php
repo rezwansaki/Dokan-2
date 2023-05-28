@@ -40,7 +40,6 @@ class UserController extends Controller
     public function storeUser(Request $request)
     {
         $upload_max_filesize = Setting::all()->first()->upload_max_filesize;
-        $upload_max_filesize = 150;
 
         // validation set
         $validatedData = $request->validate([
@@ -131,7 +130,6 @@ class UserController extends Controller
     public function updateUser(Request $request, $id)
     {
         $upload_max_filesize = Setting::all()->first()->upload_max_filesize;
-        $upload_max_filesize = 150;
 
         // validation set
         $validatedData = $request->validate([

@@ -8,14 +8,14 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. 
      */
     public function up(): void
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->integer('install_the_project')->default(0);
-            $table->string('upload_max_filesize')->default(150);
+            $table->integer('upload_max_filesize')->default(150);
             $table->timestamps();
         });
     }
