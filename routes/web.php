@@ -37,6 +37,10 @@ Route::get('/show/settings', [SettingsController::class, 'index'])->name('show.s
 Route::post('/update-settings/{id}', [SettingsController::class, 'updateSettings']);
 
 // employee routes here 
-Route::get('/all-employee', [EmployeeController::class, 'index'])->name('all.employee');
 Route::get('/add-employee', [EmployeeController::class, 'addEmployee'])->name('add.employee');
 Route::post('/store-employee', [EmployeeController::class, 'storeEmployee'])->name('store.employee');
+Route::get('/all-employee', [EmployeeController::class, 'index'])->name('all.employee');
+Route::get('/edit-employee/{id}', [EmployeeController::class, 'editEmployee']);
+Route::post('/update-employee/{id}', [EmployeeController::class, 'updateEmployee']);
+Route::get('/delete-employee/{id}', [EmployeeController::class, 'deleteEmployee']);
+Route::get('/view-single-user/{id}', [EmployeeController::class, 'viewSingleEmployee']);
