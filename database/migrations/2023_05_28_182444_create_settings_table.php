@@ -15,6 +15,9 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->integer('install_the_project')->default(0);
+            $table->string('shop_name')->default('Dokan-2');
+            $table->string('shop_description')->nullable()->default('Description');
+            $table->string('shop_location')->nullable()->default('Location');;
             $table->integer('upload_max_filesize')->default(150);
             $table->timestamps();
         });

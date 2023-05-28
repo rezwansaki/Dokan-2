@@ -49,6 +49,18 @@
                     @endif
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputShopName">Shop Name</label>
+                    <input type="text" class="form-control" id="exampleInputShopName" value="{{ $settingsData->shop_name }}" name="shop_name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputShopDescription">Shop Description</label>
+                    <input type="text" class="form-control" id="exampleInputShopDescription" value="{{ $settingsData->shop_description }}" name="shop_description">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputShopLocation">Shop Location</label>
+                    <input type="text" class="form-control" id="exampleInputShopLocation" value="{{ $settingsData->shop_location }}" name="shop_location">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputUploadMaxiumFileSize">Upload Maximum File Size (in KB)</label>
                     <input type="text" class="form-control" id="exampleInputUploadMaxiumFileSize" value="{{ $settingsData->upload_max_filesize }}" name="upload_max_filesize">
                   </div>

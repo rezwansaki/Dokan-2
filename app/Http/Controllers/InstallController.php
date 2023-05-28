@@ -46,6 +46,9 @@ class InstallController extends Controller
 
             $settingData = Setting::create([
                 'install_the_project' => 1,
+                'shop_name' => "Dokan-2",
+                'shop_description' => "An inventory management system.",
+                'shop_location' => "Mirpur, Dhaka, Bangladesh.",
                 'upload_max_filesize' => 150,
             ]);
 

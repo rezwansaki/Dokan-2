@@ -23,6 +23,9 @@ class SettingsController extends Controller
             'upload_max_filesize' => ['required', 'integer'],
         ]);
 
+        $data['shop_name'] = $request->shop_name;
+        $data['shop_description'] = $request->shop_description;
+        $data['shop_location'] = $request->shop_location;
         $data['upload_max_filesize'] = $request->upload_max_filesize;
 
         $settingsData = DB::table('settings')->where('id', $id)->update($data);
