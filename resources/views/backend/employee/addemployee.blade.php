@@ -5,12 +5,12 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Users
-      <small>Add User</small>
+      Employee
+      <small>Add Employee</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> User</a></li>
-      <li class="active">Add User</li>
+      <li><a href="#"><i class="fa fa-dashboard"></i> Employee</a></li>
+      <li class="active">Add Employee</li>
     </ol>
   </section>
 
@@ -34,10 +34,10 @@
             <!-- general form elements -->
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Add User</h3>
+                <h3 class="box-title">Add Employee</h3>
               </div><!-- /.box-header -->
               <!-- form start -->
-              <form role="form" action="{{ route('store.user') }}" method="POST" enctype="multipart/form-data">
+              <form role="form" action="{{ route('store.employee') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="box-body">
                   <div class="form-group">
@@ -49,40 +49,42 @@
                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-                  </div>
-                  <div class="form-group has-feedback">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                  </div>
-                  <div class="form-group">
                     <label for="exampleInputPhone">Phone</label>
                     <input type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Your Phone Number" name="phone">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputNidNumber">NID Number</label>
+                    <input type="text" class="form-control" id="exampleInputNidNumber" placeholder="Enter Your NID Number" name="nid_no">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputAddress">Address</label>
                     <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Your Address" name="address">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputCity">City</label>
+                    <input type="text" class="form-control" id="exampleInputCity" placeholder="Enter Your City" name="city">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputSalary">Salary</label>
+                    <input type="text" class="form-control" id="exampleInputSalary" placeholder="Enter Your Salary" name="salary">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputVacation">Vacation</label>
+                    <input type="text" class="form-control" id="exampleInputVacation" placeholder="Enter Your Vacation" name="vacation">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputExperience">Experience</label>
+                    <input type="text" class="form-control" id="exampleInputExperience" placeholder="Enter Your Experience" name="experience">
+                  </div>
+                  <div class="form-group">
                     <img id="image" src="#" />
                     <label for="exampleInputPhoto">Photo</label>
                     <input type="file" id="exampleInputPhoto" name="photo" accept="image/*" onchange="readURL(this);" required>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputRole">Role</label>
-                    <select id="exampleInputRole" class="form-select" aria-label="Default select example" name="role" required>
-                      <option value="0">User</option>
-                      <option value="1" selected>Admin</option>
-                      @if(Auth::user()->role == 2)
-                      <option value="2">Super Admin</option>
-                      @endif
-                    </select>
-                  </div>
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Add User</button>
+                  <button type="submit" class="btn btn-primary">Add Employee</button>
                 </div>
               </form>
             </div><!-- /.box -->        

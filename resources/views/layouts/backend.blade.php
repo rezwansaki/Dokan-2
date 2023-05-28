@@ -367,6 +367,16 @@
                 <li><a href="{{ route('all.users') }}"><i class="fa fa-circle-o"></i> All Users</a></li>
               </ul>
             </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-user" aria-hidden="true"></i> <span>Employee</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('add.employee') }}"><i class="fa fa-circle-o"></i> Add Employee</a></li>
+                <li><a href="{{ route('all.employee') }}"><i class="fa fa-circle-o"></i> All Employee</a></li>
+              </ul>
+            </li>
             <li class="header">SECTION-B</li>
             <li><a href="{{ route('show.settings') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
           </ul>

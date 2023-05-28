@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class SettingsController extends Controller
 {
+    // to protect this controller from unauthenticated users 
+    public function __construct()
+    {
+        // Only Superadmin can access all the functions of this controller 
+        $this->middleware('superadmin');
+    }
+
     // to show settings 
     public function index()
     {

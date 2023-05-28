@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InstallController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
+
 
 // installation routes
 Route::get('install', [InstallController::class, 'index'])->name('install');
@@ -33,3 +35,8 @@ Route::get('/view-single-user/{id}', [UserController::class, 'viewSingleUser']);
 // settings routes here 
 Route::get('/show/settings', [SettingsController::class, 'index'])->name('show.settings');
 Route::post('/update-settings/{id}', [SettingsController::class, 'updateSettings']);
+
+// employee routes here 
+Route::get('/all-employee', [EmployeeController::class, 'index'])->name('all.employee');
+Route::get('/add-employee', [EmployeeController::class, 'addEmployee'])->name('add.employee');
+Route::post('/store-employee', [EmployeeController::class, 'storeEmployee'])->name('store.employee');
