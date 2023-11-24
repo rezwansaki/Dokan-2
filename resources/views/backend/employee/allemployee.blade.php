@@ -52,7 +52,7 @@
                         <td> {{ $row->vacation }} </td>
                         <td> <img src="{{ $row->photo }}" style="width:58px; height:58px;"> </td>
                         <td> 
-                            <a href="{{url('/view-single-user/'.$row->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="{{url('/view-single-employee/'.$row->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{{ url('/edit-employee/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             <a href="{{ url('/delete-employee/'.$row->id) }}" class="btn btn-sm btn-danger" id="user-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                         </td>

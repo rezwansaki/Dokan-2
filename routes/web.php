@@ -43,4 +43,4 @@ Route::get('/all-employee', [EmployeeController::class, 'index'])->name('all.emp
 Route::get('/edit-employee/{id}', [EmployeeController::class, 'editEmployee']);
 Route::post('/update-employee/{id}', [EmployeeController::class, 'updateEmployee']);
 Route::get('/delete-employee/{id}', [EmployeeController::class, 'deleteEmployee']);
-Route::get('/view-single-user/{id}', [EmployeeController::class, 'viewSingleEmployee']);
+Route::get('/view-single-employee/{id}', [EmployeeController::class, 'viewSingleEmployee']);
