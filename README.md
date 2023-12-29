@@ -1,6 +1,6 @@
 # Dokan-2 - Laravel 10 Project
 
-![Alt text](screenshot.jpg "Lara Dokan - Laravel 8 Project")
+![Alt text](screenshot.jpg "Lara Dokan - Laravel 10 Project")
 
 An Inventory Management System for practice. It can help to run a small shop. Such as, paying the employees, managing products, ePOS etc.
 
@@ -46,7 +46,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Project Version:
 
-1.0.2
+1.1.2
 
 ### Start Date:
 
@@ -54,7 +54,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Last Update:
 
-26-May-2023
+30-Dec-2023
 
 ### Developed by:
 

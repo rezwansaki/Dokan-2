@@ -18,7 +18,7 @@ class UserController extends Controller
     // to protect this controller from unauthenticated users 
     public function __construct()
     {
-        // Only Superadmin can access all the functions of this controller 
+        // Only Superadmin and admin can access all the functions of this controller 
         $this->middleware('adminandsuperadmin');
     }
 
