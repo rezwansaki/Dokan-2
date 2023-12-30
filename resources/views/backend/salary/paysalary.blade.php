@@ -50,22 +50,20 @@
                           <th>Email</th>
                           <th>Phone</th>                      
                           <th>Address</th>
-                          <th>Salary</th>
-                          <th>Vacation</th>
+                          <th>Salary</th>                                             
                           <th>Photo</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($employees as $row)
+                        @foreach ($employees as $row)                                  
                         <tr>                        
                             <td> {{ $row->id }} </td>
                             <td> {{ $row->name }} </td>
                             <td> {{ $row->email }} </td>
                             <td> {{ $row->phone }} </td>
                             <td> {{ $row->address }} </td>
-                            <td> {{ $row->salary }} </td>
-                            <td> {{ $row->vacation }} </td>
+                            <td> {{ $row->salary }} </td>                            
                             <td> <img src="{{ $row->photo }}" style="width:58px; height:58px;"> </td>
                             <td> 
                                 <a href="{{URL::to('/pay-salary-done/'. $row->id)}}" class="btn btn-sm btn-warning">Pay Now</a>
@@ -85,8 +83,8 @@
                 </div><!-- /.box -->        
               </div><!--/.col (left) -->         
             </div>   <!-- /.row -->
-        
-        </section><!-- /.content -->
+            {{ $employees->links() }}
+          </section><!-- /.content -->
 
         {{-- <div class="row">
           <!-- left column -->

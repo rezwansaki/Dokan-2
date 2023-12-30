@@ -387,6 +387,16 @@
                 <li><a href="{{ route('show.all.salaries') }}"><i class="fa fa-circle-o"></i> Show All Salaries</a></li>
               </ul>
             </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-money" aria-hidden="true"></i> <span>Products</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('add.product') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
+                <li><a href="{{ route('all.products') }}"><i class="fa fa-circle-o"></i> All Products</a></li>
+              </ul>
+            </li>
             <li class="header">SECTION-B</li>
             <li><a href="{{ route('show.settings') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
           </ul>

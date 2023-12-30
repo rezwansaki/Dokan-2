@@ -63,18 +63,18 @@
                                     @endforeach
                                 </tbody>
                                 {{-- <tfoot>
-                       
-                      </tfoot> --}}
+                                    
+                               </tfoot> --}}
                                 </form>
                             </table>
                         </div><!-- /.box-body -->
+
                         {{-- end of data table --}}
-
-
                     </div><!-- /.box -->
+                    {{ $salaries-> links() }}
                 </div><!--/.col (left) -->
+                
             </div> <!-- /.row -->
-
         </section><!-- /.content -->
 
 </section><!-- /.content -->

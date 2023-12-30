@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InstallController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
@@ -50,3 +51,11 @@ Route::get('/view-single-employee/{id}', [EmployeeController::class, 'viewSingle
 Route::get('/pay-salary', [SalaryController::class, 'paySalary'])->name('pay.salary');
 Route::get('/pay-salary-done/{id}', [SalaryController::class, 'paySalaryDone'])->name('pay.salary.done');
 Route::get('/show-all-salaries', [SalaryController::class, 'showAllSalaries'])->name('show.all.salaries');
+
+// product routes here 
+Route::get('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
+Route::post('/sore-product', [ProductController::class, 'storeProduct'])->name('store.product');
+Route::get('/all-products', [ProductController::class, 'index'])->name('all.products');
+Route::get('/edit-product/{id}', [ProductController::class, 'editProduct']);
+Route::post('/update-product/{id}', [ProductController::class, 'updateProduct']);
+// Route::get('/delete-products/{id}', [ProductController::class, 'deleteProduct']);

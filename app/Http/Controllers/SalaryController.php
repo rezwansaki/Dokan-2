@@ -20,7 +20,7 @@ class SalaryController extends Controller
     // pay salary function 
     public function paySalary()
     {
-        $employees = Employee::orderBy('id', 'ASC')->get();
+        $employees = Employee::orderBy('id', 'ASC')->paginate(12);
         return view('backend.salary.paysalary')->with('employees', $employees);
     }
 
@@ -58,7 +58,7 @@ class SalaryController extends Controller
     // show all salaries 
     public function showAllSalaries()
     {
-        $salaries = Salary::orderBy('id', 'ASC')->get();
+        $salaries = Salary::orderBy('id', 'ASC')->paginate(20);
         return view('backend.salary.showallsalary')->with('salaries', $salaries);
     }
 }
