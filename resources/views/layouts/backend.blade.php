@@ -383,8 +383,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li><a href="{{ route('paid.salary.info') }}"><i class="fa fa-circle-o"></i> Paid Salary Information</a></li>
                 <li><a href="{{ route('pay.salary') }}"><i class="fa fa-circle-o"></i> Pay Salary</a></li>
-                <li><a href="{{ route('show.all.salaries') }}"><i class="fa fa-circle-o"></i> Show All Salaries</a></li>
               </ul>
             </li>
             <li class="treeview">

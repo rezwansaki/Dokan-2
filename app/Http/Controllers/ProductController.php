@@ -43,6 +43,7 @@ class ProductController extends Controller
             'expire_date' => ['required'],
             'buying_price' => ['required'],
             'selling_price' => ['required'],
+            'stock' => ['required'],
             'product_image' => ['mimes:jpeg,jpg,png', 'max:' . $upload_max_filesize], //maximum file size in KB 
         ]);
 
@@ -53,6 +54,7 @@ class ProductController extends Controller
         $data['expire_date'] = $request->expire_date;
         $data['buying_price'] = $request->buying_price;
         $data['selling_price'] = $request->selling_price;
+        $data['stock'] = $request->stock;
         $image = $request->file('product_image');
 
         if ($image) {
@@ -108,6 +110,7 @@ class ProductController extends Controller
             'expire_date' => ['max:255'],
             'buying_price' => ['max:255'],
             'selling_price' => ['max:255'],
+            'stock' => ['max:255'],
             'product_image' => ['mimes:jpeg,jpg,png', 'max:' . $upload_max_filesize], //maximum file size in KB 
         ]);
 
@@ -117,6 +120,7 @@ class ProductController extends Controller
         $data['expire_date'] = $request->expire_date;
         $data['buying_price'] = $request->buying_price;
         $data['selling_price'] = $request->selling_price;
+        $data['stock'] = $request->stock;
         $image = $request->file('product_image');
 
         if ($image) { //with image

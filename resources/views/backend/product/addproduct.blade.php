@@ -72,6 +72,11 @@
                     <label for="exampleInputSalary">Selling Price</label>
                     <input type="text" class="form-control" id="exampleInputSalary" placeholder="Selling Price" name="selling_price">
                   </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputSalary">Stock</label>
+                    <input type="text" class="form-control" id="exampleInputSalary" placeholder="Stock" name="stock">
+                  </div>
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">

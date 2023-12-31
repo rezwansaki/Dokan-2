@@ -38,6 +38,7 @@
                       <th>Expire Date</th>
                       <th>Buying Price</th>
                       <th>Selling Price</th>
+                      <th>Stock</th>
                       <th>Product Image</th>                      
                       <th>Action</th>
                     </tr>
@@ -52,8 +53,9 @@
                         <td> {{date('d-M-Y', strtotime($row->expire_date))}} </td>
                         <td> {{number_format($row->buying_price, 2)}} </td>
                         <td> {{number_format($row->selling_price, 2)}} </td>
+                        <td> {{ $row->stock }} </td>
                         <td> <img src="{{ $row->product_image }}" style="width:58px; height:58px;"> </td>
-                        <td> 
+                        <td style="padding:0;"> 
                             <a href="{{ url('/edit-product/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             <a href="{{ url('/delete-product/'.$row->id) }}" class="btn btn-sm btn-danger" id="user-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                         </td>

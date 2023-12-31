@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('expire_date')->nullable();
             $table->float('buying_price')->nullable()->default(0.00);
             $table->float('selling_price')->nullable()->default(0.00);
+            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }

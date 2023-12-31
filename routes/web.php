@@ -49,8 +49,10 @@ Route::get('/view-single-employee/{id}', [EmployeeController::class, 'viewSingle
 
 // salary routes here 
 Route::get('/pay-salary', [SalaryController::class, 'paySalary'])->name('pay.salary');
-Route::get('/pay-salary-done/{id}', [SalaryController::class, 'paySalaryDone'])->name('pay.salary.done');
-Route::get('/show-all-salaries', [SalaryController::class, 'showAllSalaries'])->name('show.all.salaries');
+Route::post('/store-salary', [SalaryController::class, 'storeSalary'])->name('store.salary');
+Route::get('/paid-salary-info', [SalaryController::class, 'paidSalaryInfo'])->name('paid.salary.info');
+Route::get('/delete-salary/{id}', [SalaryController::class, 'deleteSalary']);
+
 
 // product routes here 
 Route::get('/add-product', [ProductController::class, 'addProduct'])->name('add.product');

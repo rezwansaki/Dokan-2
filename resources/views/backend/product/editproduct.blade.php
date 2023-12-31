@@ -70,6 +70,10 @@
                     <input type="text" class="form-control" id="exampleInputName" value="{{number_format($product->selling_price, 2)}}" name="selling_price">
                   </div>
                  
+                  <div class="form-group">
+                    <label for="exampleInputSalary">Stock</label>
+                    <input type="text" class="form-control" id="exampleInputSalary" value="{{$product->stock}}" name="stock">
+                  </div>
 
                   <div class="form-group">
                     <img id="image" src="#"/>
