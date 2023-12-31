@@ -112,7 +112,7 @@ function readURL(input) {
       e.preventDefault();
       var link = $(this).attr("href");
       Swal.fire({
-          title: 'Are you sure, you want to delete the user?',
+          title: 'Are you sure, you want to delete the employee?',
           text: "You won't be able to revert this!",
           icon: 'warning',
           showCancelButton: true,

@@ -52,22 +52,22 @@
 
                   <div class="form-group">
                     <label for="exampleInputName">Buy Date</label>
-                    <input type="text" class="form-control" id="exampleInputName" value="{{ $product->buy_date }}" name="buy_date">
+                    <input type="date" class="form-control" id="exampleInputName" value="{{date('Y-m-d', strtotime($product->buy_date))}}" name="buy_date">
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputName">Expire Date</label>
-                    <input type="text" class="form-control" id="exampleInputName" value="{{ $product->expire_date }}" name="expire_date">
+                    <input type="date" class="form-control" id="exampleInputName" value="{{date('Y-m-d', strtotime($product->expire_date))}}" name="expire_date">
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputName">Buying Price</label>
-                    <input type="text" class="form-control" id="exampleInputName" value="{{ $product->buying_price }}" name="buying_price">
+                    <input type="text" class="form-control" id="exampleInputName" value="{{number_format($product->buying_price, 2)}}" name="buying_price">
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputName">Selling Price</label>
-                    <input type="text" class="form-control" id="exampleInputName" value="{{ $product->selling_price }}" name="selling_price">
+                    <input type="text" class="form-control" id="exampleInputName" value="{{number_format($product->selling_price, 2)}}" name="selling_price">
                   </div>
                  
 

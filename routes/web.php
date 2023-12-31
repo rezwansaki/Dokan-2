@@ -58,4 +58,4 @@ Route::post('/sore-product', [ProductController::class, 'storeProduct'])->name('
 Route::get('/all-products', [ProductController::class, 'index'])->name('all.products');
 Route::get('/edit-product/{id}', [ProductController::class, 'editProduct']);
 Route::post('/update-product/{id}', [ProductController::class, 'updateProduct']);
-// Route::get('/delete-products/{id}', [ProductController::class, 'deleteProduct']);
+Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct']);

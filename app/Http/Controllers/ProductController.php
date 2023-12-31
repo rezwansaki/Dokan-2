@@ -111,12 +111,12 @@ class ProductController extends Controller
             'product_image' => ['mimes:jpeg,jpg,png', 'max:' . $upload_max_filesize], //maximum file size in KB 
         ]);
 
-        $data['product_name'] = $request->name;
-        $data['product_description'] = $request->name;
-        $data['buy_date'] = $request->name;
-        $data['expire_date'] = $request->name;
-        $data['buying_price'] = $request->name;
-        $data['selling_price'] = $request->name;
+        $data['product_name'] = $request->product_name;
+        $data['product_description'] = $request->product_description;
+        $data['buy_date'] = $request->buy_date;
+        $data['expire_date'] = $request->expire_date;
+        $data['buying_price'] = $request->buying_price;
+        $data['selling_price'] = $request->selling_price;
         $image = $request->file('product_image');
 
         if ($image) { //with image
@@ -164,6 +164,22 @@ class ProductController extends Controller
                 }
             }
         }
-    } // update employee
+    } // update Product
+
+    // delete product
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        $image_path = $product->product_image;
+        if ($image_path) {
+            $done = unlink(public_path() . $image_path); //to remove image from folder
+        }
+        $delete = $product->delete();
+        $notification = array(
+            'message' => 'Product Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return Redirect()->route('all.products')->with($notification);
+    } // delete product
 
 }
