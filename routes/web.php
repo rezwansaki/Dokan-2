@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PosController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\InstallController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\UserController;
 
 
 // installation routes
@@ -61,3 +63,12 @@ Route::get('/all-products', [ProductController::class, 'index'])->name('all.prod
 Route::get('/edit-product/{id}', [ProductController::class, 'editProduct']);
 Route::post('/update-product/{id}', [ProductController::class, 'updateProduct']);
 Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
+
+// pos route here
+Route::get('/pos', [PosController::class, 'index'])->name('pos');
+
+// cart route here
+Route::post('/add-cart', [CartController::class, 'index'])->name('add.cart');
+Route::post('/cart-update/{rowId}', [CartController::class, 'cartUpdate'])->name('update.cart');
+Route::get('/cart-remove/{rowId}', [CartController::class, 'cartRemove'])->name('remove.cart');
+Route::post('/create-invoice', [CartController::class, 'createInvoice'])->name('create.invoice');

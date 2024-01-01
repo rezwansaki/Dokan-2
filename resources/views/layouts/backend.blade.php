@@ -397,6 +397,8 @@
                 <li><a href="{{ route('all.products') }}"><i class="fa fa-circle-o"></i> All Products</a></li>
               </ul>
             </li>
+            <li><a href="{{ route('pos') }}"><i class="fa fa-cog"></i> <span>POS</span></a></li>
+
             <li class="header">SECTION-B</li>
             <li><a href="{{ route('show.settings') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
           </ul>
