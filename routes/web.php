@@ -72,3 +72,4 @@ Route::post('/add-cart', [CartController::class, 'index'])->name('add.cart');
 Route::post('/cart-update/{rowId}', [CartController::class, 'cartUpdate'])->name('update.cart');
 Route::get('/cart-remove/{rowId}', [CartController::class, 'cartRemove'])->name('remove.cart');
 Route::post('/create-invoice', [CartController::class, 'createInvoice'])->name('create.invoice');
+Route::post('/final-invoice', [CartController::class, 'finalInvoice'])->name('final.invoice');

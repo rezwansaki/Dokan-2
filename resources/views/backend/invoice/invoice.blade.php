@@ -120,12 +120,78 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button>
+          <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-default"><i class="fa fa-credit-card"></i> Submit Payment</button>
           <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button>
         </div>
       </div>
     </section><!-- /.content -->
     <div class="clearfix"></div>
   </div><!-- /.content-wrapper -->
+
+
+{{-- modal input start here --}}
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Invoice for the customer <span style="font-size: 20px; color:black; float:right;">Total: {{ Cart::total() }}</span></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      {{-- form start here --}}
+      <form role="form" action="{{ route('final.invoice') }}" method="POST">
+        @csrf
+        <div class="box-body">
+          <div class="form-group">
+            <label for="exampleInputName">Payment Status</label>
+            <select class="form-select" aria-label="Default select example" name="payment_status">
+              <option value="HandCash">HandCash</option>
+              <option value="Cheque">Cheque</option>
+              <option value="Due">Due</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputName">Pay</label>
+            <input type="text" class="form-control" id="pay" placeholder="Paid Amount" name="pay">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputName">Due</label>
+            <input type="text" class="form-control" id="due" placeholder="Due Amount" name="due">
+          </div>
+        </div><!-- /.box-body -->
+
+        <input type="hidden" name="order_date" value="{{ date('d-M-Y') }}">
+        <input type="hidden" name="order_status" value="pending">
+        <input type="hidden" name="total_products" value="{{ Cart::count() }}">
+        <input type="hidden" name="sub_total" value="{{ Cart::subtotal() }}">
+        <input type="hidden" name="vat" value="{{ Cart::tax() }}">
+        <input type="hidden" name="total" value="{{ Cart::total() }}">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      {{-- form end here --}}
+      </div>
+      {{-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> --}}
+    </div>
+  </div>
+</div>
+{{-- modal input end here --}}
 
 @endsection

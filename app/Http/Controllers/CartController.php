@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
@@ -90,5 +91,44 @@ class CartController extends Controller
     {
         $cart_contents = Cart::content();
         return view('backend.invoice.invoice', compact('cart_contents'));
+    }
+
+    // final invoice 
+    public function finalInvoice(Request $request)
+    {
+        $data = array();
+        $data['order_date'] = $request->order_date;
+        $data['order_status'] = $request->order_status;
+        $data['total_products'] = $request->total_products;
+        $data['sub_total'] = $request->sub_total;
+        $data['vat'] = $request->vat;
+        $data['total'] = $request->total;
+        $data['payment_status'] = $request->payment_status;
+        $data['pay'] = $request->pay;
+        $data['due'] = $request->due;
+
+        $order_id = DB::table('orders')->insertGetId($data);
+        $cart_content = Cart::content();
+
+        $odata = array();
+        foreach ($cart_content as $content) {
+            $odata['order_id'] = $order_id;
+            $odata['product_id'] = $content->id;
+            $odata['quantity'] =  $content->qty;
+            $odata['unit_cost'] =  $content->price;
+            $odata['total'] =  $content->total;
+            $insert = DB::table('order_details')->insert($odata);
+        }
+
+        if ($insert) {
+            $notification = array(
+                'message' => 'Successfully Invoice Created ! Please, deliver the products and accept status.',
+                'alert-type' => 'success'
+            );
+            Cart::destroy();
+            return Redirect()->route('pos')->with($notification);
+        } else {
+            return Redirect()->back();
+        }
     }
 }

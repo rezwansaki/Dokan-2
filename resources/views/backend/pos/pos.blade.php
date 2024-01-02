@@ -90,10 +90,6 @@
                 <td> {{ $row->id }} </td>
                 <td> {{ $row->product_name }} </td>
                 <td><img src="{{ $row->product_image }}" style="width:58px; height:58px;"></td>
-                <td style="padding:0;"> 
-                <a href="{{ url('/edit-product/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                <a href="{{ url('/delete-product/'.$row->id) }}" class="btn btn-sm btn-danger" id="user-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                </td>
                 <td><button type="submit" class="btn btn-info btn-sm"><i style="font-size: 20px" class="fa fa-plus-square" aria-hidden="true"></i></button></td>
               </form>
             </tr>
