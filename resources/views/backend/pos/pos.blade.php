@@ -73,6 +73,8 @@
             <tr>
               <th>Id</th>
               <th>Name</th>
+              <th>Price</th>
+              <th>Stock</th>
               <th>Image</th>                      
               <th>Action</th>
             </tr>
@@ -89,6 +91,8 @@
                 <input type="hidden" name="price" value="{{ $row->selling_price}}">
                 <td> {{ $row->id }} </td>
                 <td> {{ $row->product_name }} </td>
+                <td> {{ $row->selling_price }} </td>
+                <td> {{ $row->stock }} </td>
                 <td><img src="{{ $row->product_image }}" style="width:58px; height:58px;"></td>
                 <td><button type="submit" class="btn btn-info btn-sm"><i style="font-size: 20px" class="fa fa-plus-square" aria-hidden="true"></i></button></td>
               </form>

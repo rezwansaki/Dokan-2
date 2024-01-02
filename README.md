@@ -40,13 +40,14 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Extra Packages used:
 
-1.
+1. spatie: "^2.0"
+2. hardevine shoppingcart: "^3.2",
 
 <hr>
 
 ### Project Version:
 
-1.1.2
+1.0.0
 
 ### Start Date:
 
@@ -54,7 +55,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Last Update:
 
-30-Dec-2023
+03-Jan-2024
 
 ### Developed by:
 
