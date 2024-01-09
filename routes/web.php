@@ -9,6 +9,8 @@ use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\InstallController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -63,6 +65,17 @@ Route::get('/all-products', [ProductController::class, 'index'])->name('all.prod
 Route::get('/edit-product/{id}', [ProductController::class, 'editProduct']);
 Route::post('/update-product/{id}', [ProductController::class, 'updateProduct']);
 Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
+
+// order routes
+Route::get('/all-orders', [OrderController::class, 'allOrders'])->name('all.orders');
+Route::get('/all-orderdetails', [OrderController::class, 'allOrderdetails'])->name('all.orderdetails');
+
+// income routes (order information from orders table which payment status is not due)
+Route::get('/all-income', [OrderController::class, 'allIncome'])->name('all.income');
+
+// expense routes 
+Route::get('/expense', [ExpenseController::class, 'index'])->name('add.expense');
+Route::post('/store-expense', [ExpenseController::class, 'storeExpense'])->name('store.expense');
 
 // pos route here
 Route::get('/pos', [PosController::class, 'index'])->name('pos');

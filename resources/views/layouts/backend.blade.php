@@ -397,6 +397,15 @@
                 <li><a href="{{ route('all.products') }}"><i class="fa fa-circle-o"></i> All Products</a></li>
               </ul>
             </li>
+
+            <li><a href="{{ route('all.orders') }}"><i class="fa fa-cog"></i> <span>Orders</span></a></li>
+
+            <li><a href="{{ route('all.orderdetails') }}"><i class="fa fa-cog"></i> <span>Order Details</span></a></li>
+
+            <li><a href="{{ route('all.income') }}"><i class="fa fa-cog"></i> <span>Income</span></a></li>
+
+            <li><a href="{{ route('add.expense') }}"><i class="fa fa-cog"></i> <span>Expense</span></a></li>
+
             <li><a href="{{ route('pos') }}"><i class="fa fa-cog"></i> <span>POS</span></a></li>
 
             <li class="header">SECTION-B</li>

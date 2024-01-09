@@ -38,8 +38,9 @@
                 <th>
                   <form action="{{ url('/cart-update/'.$prod->rowId)}}" method="POST">
                     @csrf
-                    <input type="number" name="qty" value="{{ $prod->qty}}" style="width: 30px">
-                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i></button>
+                    <input id="qty" type="number" name="qty" value="{{ $prod->qty}}" style="width: 40px">
+                    <input type="hidden" name="product_id" value="{{ $prod->id}}" style="width: 40px">
+                    <button id="btn_qty_update" type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i></button>
                   </form>
                 </th>                
                 <th>{{ $prod->price}}</th>
@@ -85,7 +86,7 @@
              {{-- Add Cart --}}
               <form action="{{ url('/add-cart') }}" method="POST">
                 @csrf
-                <input type="hidden" name="id" value="{{ $row->id}}">
+                <input type="hidden" id="pid" name="id" value="{{ $row->id}}">
                 <input type="hidden" name="name" value="{{ $row->product_name}}">
                 <input type="hidden" name="qty" value="1">
                 <input type="hidden" name="price" value="{{ $row->selling_price}}">
@@ -115,4 +116,5 @@
       $('#example1').DataTable();
    });
 </script>
+
 @endsection

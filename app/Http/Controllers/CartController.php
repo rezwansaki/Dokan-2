@@ -49,8 +49,6 @@ class CartController extends Controller
         $data = array();
         $data['qty'] = $request->qty;
 
-        $product = Product::find($request->product_id);
-
         // add requested data to cart 
         $update = Cart::update($rowId, $data);
 
@@ -120,9 +118,9 @@ class CartController extends Controller
             $odata['quantity'] =  $content->qty;
             $odata['unit_cost'] =  $content->price;
             $odata['total'] =  $content->total;
+
             $insert = DB::table('order_details')->insert($odata);
 
-            // update stock of the product 
             $product = Product::find($content->id);
             $stock_update = $product->stock - $content->qty;
             $product->stock = $stock_update;

@@ -45,11 +45,8 @@
         <div class="col-sm-4 invoice-col">
           To
           <address>
-            <strong>John Doe</strong><br>
-            795 Folsom Ave, Suite 600<br>
-            San Francisco, CA 94107<br>
-            Phone: (555) 539-1037<br>
-            Email: john.doe@example.com
+            <strong>Customer Name:</strong><br>
+            Contact:<br>
           </address>
         </div><!-- /.col -->
         <div class="col-sm-4 invoice-col">
@@ -134,7 +131,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Invoice for the customer <span style="font-size: 20px; color:black; float:right;">Total: {{ Cart::total() }}</span></h2>
+        <h2 class="modal-title" id="exampleModalLabel">Invoice for the customer <span style="font-size: 20px; color:black; float:right;">Total: <div id="cart_total">{{ Cart::total() }}</div></span></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -155,17 +152,24 @@
 
           <div class="form-group">
             <label for="exampleInputName">Pay</label>
-            <input type="text" class="form-control" id="pay" placeholder="Paid Amount" name="pay">
+            <input type="text" class="form-control" id="pay" placeholder="Paid Amount" name="pay" value="{{ Cart::total() }}">
           </div>
 
           <div class="form-group">
             <label for="exampleInputName">Due</label>
-            <input type="text" class="form-control" id="due" placeholder="Due Amount" name="due">
+            <input type="text" class="form-control" id="due" placeholder="Due Amount" name="due" value="0.00">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputName">Order Status</label>
+            <select class="form-select" aria-label="Default select example" name="order_status">
+              <option value="delivered">Delivered</option>
+              <option value="pending">Pending</option>
+            </select>
           </div>
         </div><!-- /.box-body -->
 
         <input type="hidden" name="order_date" value="{{ date('d-M-Y') }}">
-        <input type="hidden" name="order_status" value="pending">
         <input type="hidden" name="total_products" value="{{ Cart::count() }}">
         <input type="hidden" name="sub_total" value="{{ Cart::subtotal() }}">
         <input type="hidden" name="vat" value="{{ Cart::tax() }}">
@@ -193,5 +197,16 @@
   </div>
 </div>
 {{-- modal input end here --}}
+
+<script>
+  $(document).ready(function () {
+      $("#pay").on('keyup', function () {
+        $pay = $("#pay").val();
+        $cart_total = $("#cart_total").text();
+        $("#due").val($cart_total - $pay);
+      });
+  });
+</script>
+
 
 @endsection
