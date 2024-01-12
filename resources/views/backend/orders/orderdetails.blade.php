@@ -6,11 +6,10 @@
   <section class="content-header">
     <h1>
       Order Details
-      <small>All Order Details</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Order Details</a></li>
-      <li class="active">All Order Details</li>
+      <li class="active">Order Details</li>
     </ol>
   </section>
 
@@ -23,7 +22,8 @@
             <!-- general form elements -->
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">All Order Details</h3>
+                <h3 class="box-title">Order Id: {{ $orderId }}</h3>
+                <div>{{ App\Models\Order::find($orderId)->order_date}} || {{App\Models\Order::find($orderId)->order_status }} || Total Products: {{ App\Models\Order::find($orderId)->total_products }} || Total: {{ App\Models\Order::find($orderId)->total }} || Paid: {{ App\Models\Order::find($orderId)->pay }}</div>
               </div><!-- /.box-header -->
               
               {{-- start data table --}}

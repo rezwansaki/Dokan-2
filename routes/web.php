@@ -68,7 +68,7 @@ Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
 
 // order routes
 Route::get('/all-orders', [OrderController::class, 'allOrders'])->name('all.orders');
-Route::get('/all-orderdetails', [OrderController::class, 'allOrderdetails'])->name('all.orderdetails');
+Route::get('/order-details/{orderId}', [OrderController::class, 'allOrderdetails']);
 
 // income routes (order information from orders table which payment status is not due)
 Route::get('/all-income', [OrderController::class, 'allIncome'])->name('all.income');

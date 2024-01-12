@@ -57,6 +57,9 @@
                         <td> {{ $row->payment_status }} </td>                        
                         <td> {{ $row->pay }} </td>
                         <td> {{ $row->due }} </td>                       
+                        <td style="padding:0;"> 
+                            <a href="{{ url('/order-details/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </td>
                         {{-- <td style="padding:0;"> 
                             <a href="{{ url('/edit-product/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             <a href="{{ url('/delete-product/'.$row->id) }}" class="btn btn-sm btn-danger" id="user-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>

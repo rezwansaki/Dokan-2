@@ -16,7 +16,7 @@
     <div class="row">
 
       {{-- Pos start here --}}
-      <div class="col-sm-4">
+      <div class="col-sm-5">
         <div class="container-sm">
           <table class="table" style="border: 1px solid gray">
             <thead class="bg-info">
@@ -59,6 +59,15 @@
             <div><h2>Total: {{ Cart::total() }}</h2></div>
         <form action="{{ url('/create-invoice')}}" method="POST">
           </div>
+          <div class="form-group">
+            <label for="exampleInputName">Customer's Name</label>
+            <input id="customer" type="text" class="form-control" placeholder="Enter Your Name" name="customer" value="Unknown">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputName">Customer's Contact</label>
+            <input id="contact" type="text" class="form-control" placeholder="Enter Your Name" name="contact">
+          </div>          
             @csrf
             <button type="submit" class="btn btn-success">Create Invoice</button>
         </div>
@@ -67,7 +76,7 @@
     </form>
 
       {{-- All products start here --}}
-      <div class="col-sm-8">
+      <div class="col-sm-7">
        <div class="container-sm">
         <table id="example1" class="table table-bordered table-striped">
           <thead>

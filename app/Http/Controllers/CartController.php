@@ -49,10 +49,16 @@ class CartController extends Controller
         $data = array();
         $data['qty'] = $request->qty;
 
-        // add requested data to cart 
-        $update = Cart::update($rowId, $data);
+        $product = Product::find($request->product_id);
+        $stock = $product->stock;
 
-        if ($update) {
+        if ($request->qty <= $product->stock) {
+            // add requested data to cart 
+            Cart::update($rowId, $data);
+            $cart_update = Cart::get($rowId);
+
+            $product->stock = $product->stock - $cart_update->qty;
+            $product->save();
             $notification = array(
                 'message' => 'Cart Update Successfully',
                 'alert-type' => 'success'
@@ -60,7 +66,7 @@ class CartController extends Controller
             return Redirect()->back()->with($notification);
         } else {
             $notification = array(
-                'message' => 'Cart Update Failed',
+                'message' => 'Out of stock! There are total ' . $stock . ' products in stock.',
                 'alert-type' => 'error'
             );
             return Redirect()->back()->with($notification);
@@ -91,7 +97,9 @@ class CartController extends Controller
     public function createInvoice(Request $request)
     {
         $cart_contents = Cart::content();
-        return view('backend.invoice.invoice', compact('cart_contents'));
+        $customer = $request->customer;
+        $contact = $request->contact;
+        return view('backend.invoice.invoice', compact('cart_contents', 'customer', 'contact'));
     }
 
     // final invoice 

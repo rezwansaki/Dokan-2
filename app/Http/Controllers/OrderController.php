@@ -23,16 +23,17 @@ class OrderController extends Controller
     }
 
     // to show all orders from orders table 
-    public function allOrderdetails()
+    public function allOrderdetails($orderId)
     {
-        $orderdetails = OrderDetails::all();
-        return view('backend.orders.allorderdetails', compact('orderdetails'));
+        $orderdetails = OrderDetails::where('order_id', $orderId)->get();
+        return view('backend.orders.orderdetails', compact('orderdetails', 'orderId'));
     }
 
     // to show all orders from orders table which payment status is not due  
     public function allIncome()
     {
-        $income = Order::where('payment_status', '!=', 'Due')->get();
-        return view('backend.income.income', compact('income'));
+        $income = Order::where('pay', '>', 0)->get();
+        $total_income = $income->sum('pay');
+        return view('backend.income.income', compact('income', 'total_income'));
     }
 }

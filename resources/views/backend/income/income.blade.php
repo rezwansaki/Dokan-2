@@ -23,7 +23,8 @@
             <!-- general form elements -->
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">All Income</h3>
+                <h3 class="box-title">Total Income</h3>
+                <h4>{{ number_format($total_income, 2) }} Taka</h4>
               </div><!-- /.box-header -->
               
               {{-- start data table --}}

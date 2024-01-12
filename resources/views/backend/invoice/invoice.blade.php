@@ -10,7 +10,7 @@
     <section class="content-header">
       <h1>
         Invoice
-        <small>#007612</small>
+        {{-- <small>#007612</small> --}}
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -45,14 +45,14 @@
         <div class="col-sm-4 invoice-col">
           To
           <address>
-            <strong>Customer Name:</strong><br>
-            Contact:<br>
+            <strong>{{ $customer }}</strong><br>
+            {{ $contact }}<br>
           </address>
         </div><!-- /.col -->
         <div class="col-sm-4 invoice-col">
-          <b>Invoice #007612</b><br>
-          <br>
-          <b>Order ID:</b> 1<br>
+          {{-- <b>Invoice #007612</b><br>
+          <br> --}}
+          <b>Order Id:</b> {{ App\Models\Order::all()->max()->id + 1 }}<br>
         </div><!-- /.col -->
       </div><!-- /.row -->
 
@@ -90,9 +90,9 @@
       <div class="row">
         <!-- accepted payments column -->
         <div class="col-xs-6">
-          <p class="lead">Payment Methods:</p>
-            Hand Cash
-          </p>
+          {{-- <p class="lead">Payment Methods:</p>
+            Hand Cash 
+          </p> --}}
         </div><!-- /.col -->
         <div class="col-xs-6">
           <div class="table-responsive">
@@ -131,7 +131,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Invoice for the customer <span style="font-size: 20px; color:black; float:right;">Total: <div id="cart_total">{{ Cart::total() }}</div></span></h2>
+        <h2 class="modal-title" id="exampleModalLabel">Invoice for the customer <span style="font-size: 20px; color:black; float:right;">Total: <span id="cart_total">{{ Cart::total() }}</span></span></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -146,25 +146,25 @@
             <select class="form-select" aria-label="Default select example" name="payment_status">
               <option value="HandCash">HandCash</option>
               <option value="Cheque">Cheque</option>
-              <option value="Due">Due</option>
+              {{-- <option value="Due">Due</option> --}}
             </select>
           </div>
 
           <div class="form-group">
             <label for="exampleInputName">Pay</label>
-            <input type="text" class="form-control" id="pay" placeholder="Paid Amount" name="pay" value="{{ Cart::total() }}">
+            <input type="text" class="form-control" id="pay" placeholder="Paid Amount" name="pay" value="{{ Cart::total() }}" readonly>
           </div>
-
+          
           <div class="form-group">
             <label for="exampleInputName">Due</label>
-            <input type="text" class="form-control" id="due" placeholder="Due Amount" name="due" value="0.00">
+            <input type="text" class="form-control" id="due" placeholder="Due Amount" name="due" value="0.00" readonly>
           </div>
 
           <div class="form-group">
             <label for="exampleInputName">Order Status</label>
             <select class="form-select" aria-label="Default select example" name="order_status">
               <option value="delivered">Delivered</option>
-              <option value="pending">Pending</option>
+              {{-- <option value="pending">Pending</option> --}}
             </select>
           </div>
         </div><!-- /.box-body -->
