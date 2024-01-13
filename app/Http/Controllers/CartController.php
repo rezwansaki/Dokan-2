@@ -49,16 +49,13 @@ class CartController extends Controller
         $data = array();
         $data['qty'] = $request->qty;
 
+        // get a single product data from products table
         $product = Product::find($request->product_id);
-        $stock = $product->stock;
 
+        // check requested quantity is not more than product sotck 
         if ($request->qty <= $product->stock) {
             // add requested data to cart 
             Cart::update($rowId, $data);
-            $cart_update = Cart::get($rowId);
-
-            $product->stock = $product->stock - $cart_update->qty;
-            $product->save();
             $notification = array(
                 'message' => 'Cart Update Successfully',
                 'alert-type' => 'success'
@@ -66,7 +63,7 @@ class CartController extends Controller
             return Redirect()->back()->with($notification);
         } else {
             $notification = array(
-                'message' => 'Out of stock! There are total ' . $stock . ' products in stock.',
+                'message' => 'Out of stock! There are total ' . $product->stock . ' products in stock.',
                 'alert-type' => 'error'
             );
             return Redirect()->back()->with($notification);
