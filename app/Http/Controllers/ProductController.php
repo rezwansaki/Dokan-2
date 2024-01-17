@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -186,4 +187,70 @@ class ProductController extends Controller
         return Redirect()->route('all.products')->with($notification);
     } // delete product
 
+    // purchase product form
+    public function purchaseproductForm()
+    {
+        $products = Product::all();
+        return view('backend.product.purchaseproductform', compact('products'));
+    }
+
+    // purchase product 
+    public function purchaseProduct(Request $request)
+    {
+        // validation set
+        $validatedData = $request->validate([
+            'product_id' => ['required'],
+            'quantity' => ['required'],
+            'buying_price' => ['required'],
+            'total_purchase_price' => ['required'],
+            'selling_price' => ['required'],
+            'total_selling_price' => ['required'],
+            'note' => ['required'],
+            'buy_date' => ['required'],
+            'expire_date' => ['required'],
+            'supplier_name' => ['required'],
+            'supplier_address' => ['required'],
+            'supplier_phone' => ['required']
+        ]);
+
+        $data = array();
+        $data['product_id'] = $request->product_id;
+        $data['quantity'] = $request->quantity;
+        $data['buying_price'] = $request->buying_price;
+        $data['total_purchase_price'] = $request->total_purchase_price;
+        $data['selling_price'] = $request->selling_price;
+        $data['total_selling_price'] = $request->total_selling_price;
+        $data['note'] = $request->note;
+        $data['buy_date'] = $request->buy_date;
+        $data['expire_date'] = $request->expire_date;
+        $data['supplier_name'] = $request->supplier_name;
+        $data['supplier_address'] = $request->supplier_address;
+        $data['supplier_phone'] = $request->supplier_phone;
+        $data['created_at'] = new \DateTime();
+        $data['updated_at'] = new \DateTime();
+
+        $success = DB::table('purchases')->insert($data);
+        if ($success) {
+            $productInfo = Product::find($request->product_id);
+            $productOldStock = $productInfo->stock;
+            // update product stock
+            $pdata['buy_date'] = $request->buy_date;
+            $pdata['expire_date'] = $request->expire_date;
+            $pdata['buying_price'] = $request->buying_price;
+            $pdata['selling_price'] = $request->selling_price;
+            $pdata['stock'] = $productOldStock + $request->quantity;
+            DB::table('products')->where('id', $request->product_id)->update($pdata);
+            $notification = array(
+                'message' => 'Successfully purchase the product',
+                'alert-type' => 'success'
+            );
+            return Redirect()->back()->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'Error',
+                'alert-type' => 'error'
+            );
+            return Redirect()->back()->with($notification);
+        }
+    }
 }

@@ -66,6 +66,10 @@ Route::get('/edit-product/{id}', [ProductController::class, 'editProduct']);
 Route::post('/update-product/{id}', [ProductController::class, 'updateProduct']);
 Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
 
+// purchase product routes here
+Route::get('/purchase-product-form', [ProductController::class, 'purchaseproductForm'])->name('purchase.product.form');
+Route::post('/purchase-product', [ProductController::class, 'purchaseProduct'])->name('purchase.product');
+
 // order routes
 Route::get('/all-orders', [OrderController::class, 'allOrders'])->name('all.orders');
 Route::get('/order-details/{orderId}', [OrderController::class, 'allOrderdetails']);
