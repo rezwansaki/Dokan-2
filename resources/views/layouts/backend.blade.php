@@ -393,7 +393,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('add.product') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
+                <li><a href="{{ route('add.product') }}"><i class="fa fa-circle-o"></i> Add New Product</a></li>
                 <li><a href="{{ route('all.products') }}"><i class="fa fa-circle-o"></i> Product List</a></li>
                 <li><a href="{{ route('purchase.product.form') }}"><i class="fa fa-circle-o"></i> Purchase Product</a></li>
               </ul>

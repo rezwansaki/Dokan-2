@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id');
-            $table->integer('quantity');
-            $table->float('buying_price')->nullable()->default(0.00);
-            $table->float('total_purchase_price')->nullable()->default(0.00);
-            $table->float('selling_price')->nullable()->default(0.00);
-            $table->float('total_selling_price')->nullable()->default(0.00);
-            $table->string('note')->nullable();
-            $table->dateTime('buy_date')->nullable();
-            $table->dateTime('expire_date')->nullable();
+            $table->dateTime('purchase_date')->nullable();
+            $table->string('purchase_status');
+            $table->string('total_products');
+            $table->string('sub_total');
+            $table->string('vat');
+            $table->string('total');
+            $table->string('payment_status');
+            $table->string('pay')->nullable();
+            $table->string('due')->nullable();
             $table->string('supplier_name')->nullable();
             $table->string('supplier_address')->nullable();
             $table->string('supplier_phone')->nullable();

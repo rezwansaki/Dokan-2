@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PurchaseProductController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -67,8 +68,13 @@ Route::post('/update-product/{id}', [ProductController::class, 'updateProduct'])
 Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
 
 // purchase product routes here
-Route::get('/purchase-product-form', [ProductController::class, 'purchaseproductForm'])->name('purchase.product.form');
-Route::post('/purchase-product', [ProductController::class, 'purchaseProduct'])->name('purchase.product');
+Route::get('/purchase-product-form', [PurchaseProductController::class, 'index'])->name('purchase.product.form');
+Route::post('/add-cart-to-purchase', [PurchaseProductController::class, 'addCartToPurchase'])->name('add.cart.to.purchase');
+Route::post('/cart-update-to-purchase/{rowId}', [PurchaseProductController::class, 'cartUpdateToPurchase'])->name('update.cart.to.purchase');
+Route::get('/cart-remove-to-purchase/{rowId}', [PurchaseProductController::class, 'cartRemoveToPurchase'])->name('remove.cart.to.purchase');
+Route::get('/generate-invoice-to-purchase', [PurchaseProductController::class, 'generateInvoiceToPurchase'])->name('generate.invoice.to.purchase');
+Route::post('/final-invoice-for-purchase', [PurchaseProductController::class, 'finalInvoiceForPurchase'])->name('final.invoice.for.purchase');
+
 
 // order routes
 Route::get('/all-orders', [OrderController::class, 'allOrders'])->name('all.orders');
