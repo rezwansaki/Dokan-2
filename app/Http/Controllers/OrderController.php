@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Double;
 
 class OrderController extends Controller
 {
@@ -33,7 +34,7 @@ class OrderController extends Controller
     public function allIncome()
     {
         $income = Order::where('pay', '>', 0)->get();
-        $total_income = $income->sum('pay');
+        $total_income = Order::where('pay', '>', 0)->sum('pay');
         return view('backend.income.income', compact('income', 'total_income'));
     }
 }

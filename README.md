@@ -40,8 +40,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Extra Packages used:
 
-1. spatie: "^2.0"
-2. hardevine shoppingcart: "^3.2",
+1. hardevine shoppingcart: "^3.2",
 
 <hr>
 
@@ -55,7 +54,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Last Update:
 
-19-Jan-2024
+14-Feb-2024
 
 ### Developed by:
 
