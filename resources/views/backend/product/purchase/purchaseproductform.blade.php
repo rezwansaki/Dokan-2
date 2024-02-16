@@ -27,8 +27,8 @@
                 <th>Note</th>
                 <th>Buy Date</th>
                 <th>Expire Date</th>
-                <th>Update</th>
-                <th>Remove</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             @php
@@ -45,9 +45,9 @@
                     <input type="hidden" name="product_id" value="{{ $prod->id}}" style="width: 40px">                            
                 </th>
                 <th><input id="buying_price" name="buying_price" value="{{ $prod->price}}" style="width: 40px"></th>
-                <th><input id="total_purchase_price" name="total_purchase_price" value="{{ $prod->price * $prod->qty}}" style="width: 40px"></th>
+                <th><input id="total_purchase_price" name="total_purchase_price" value="{{ $prod->price * $prod->qty}}" style="width: 40px" readonly></th>
                 <th><input id="selling_price" name="selling_price" value="{{ $prod->options->selling_price}}" style="width: 40px"></th>
-                <th><input id="total_selling_price" name="total_selling_price" value="{{ $prod->options->selling_price * $prod->qty}}" style="width: 40px"></th>
+                <th><input id="total_selling_price" name="total_selling_price" value="{{ $prod->options->selling_price * $prod->qty}}" style="width: 40px" readonly></th>
                 <th><input id="note" name="note" value="{{ $prod->options->note}}" style="width: 92px"></th>
                 <th><input type="date" class="form-control" id="buy_date" name="buy_date"></th>
                 <th><input type="date" class="form-control" id="expire_date" name="expire_date"></th>
@@ -111,7 +111,7 @@
                 <input type="hidden" name="qty" value="1">
                 <input type="hidden" name="price" value="0">
                 <input type="hidden" id="selling_price" name="selling_price" value="0" style="width: 40px">
-                <td> {{ $row->product_name }} <br> Id: {{ $row->id }} - Stock: {{ $row->stock }}</td>
+                <td> {{ $row->product_name }} <br> Id: {{ $row->id }} - Stock: {{ $row->stock }} - S.Price: {{ $row->selling_price }} Tk.</td>
                 <td><button type="submit" class="btn btn-info btn-sm"><i style="font-size: 20px" class="fa fa-plus-square" aria-hidden="true"></i></button></td>
               </form>
             </tr>

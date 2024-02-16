@@ -5,8 +5,8 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Expense
-      <small>Add Expense</small>
+      Other Expense
+      <small>(Any kind of other expenses.)</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Expense</a></li>

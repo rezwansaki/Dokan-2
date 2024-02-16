@@ -75,13 +75,9 @@ Route::get('/cart-remove-to-purchase/{rowId}', [PurchaseProductController::class
 Route::get('/generate-invoice-to-purchase', [PurchaseProductController::class, 'generateInvoiceToPurchase'])->name('generate.invoice.to.purchase');
 Route::post('/final-invoice-for-purchase', [PurchaseProductController::class, 'finalInvoiceForPurchase'])->name('final.invoice.for.purchase');
 
-
 // order routes
 Route::get('/all-orders', [OrderController::class, 'allOrders'])->name('all.orders');
 Route::get('/order-details/{orderId}', [OrderController::class, 'allOrderdetails']);
-
-// income routes (order information from orders table which payment status is not due)
-Route::get('/all-income', [OrderController::class, 'allIncome'])->name('all.income');
 
 // expense routes 
 Route::get('/expense', [ExpenseController::class, 'index'])->name('add.expense');
