@@ -45,8 +45,7 @@
           </address>
         </div><!-- /.col -->
         <div class="col-sm-4 invoice-col">       
-          {{-- <b>Purchase Invoice Id:</b> {{ App\Models\Purchase::all()->max()->id + 1  }}<br> --}}
-          <b>Purchase Invoice Id:</b> 1 <br>
+          <b>Purchase Invoice Id:</b> {{ App\Models\Purchase::all()->max()->id + 1  }} <br>
         </div><!-- /.col -->
       </div><!-- /.row -->
 

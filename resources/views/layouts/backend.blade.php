@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="{{ asset('adminlte/bootstrap/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    {{-- <script src="https://kit.fontawesome.com/52a10f3455.js" crossorigin="anonymous"></script> --}}
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -424,7 +423,7 @@
       </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    {{-- <script src="{{ asset('adminlte/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script> --}}
+    <script src="{{ asset('adminlte/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     {{-- <script src="{{ asset('adminlte/plugins/jQuery/ui/1.11.4/jquery-ui.min.js')}}"></script> --}}

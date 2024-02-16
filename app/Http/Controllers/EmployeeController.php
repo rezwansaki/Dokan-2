@@ -67,8 +67,8 @@ class EmployeeController extends Controller
         $data['salary'] = $request->salary;
         $data['vacation'] = $request->vacation;
         $data['experience'] = $request->experience;
-        $data['created_at'] = new \DateTime();
-        $data['updated_at'] = new \DateTime();
+        $data['created_at'] = new \DateTime(); //to get current date and time
+        $data['updated_at'] = new \DateTime(); //to get current date and time
         $image = $request->file('photo');
 
         if ($image) {
