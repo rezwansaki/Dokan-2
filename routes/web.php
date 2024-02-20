@@ -1,31 +1,31 @@
 <?php
 
-use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PosController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\InstallController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PurchaseProductController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\PurchaseProductController;
 
 
 // installation routes
 Route::get('install', [InstallController::class, 'index'])->name('install');
 Route::post('install/done', [InstallController::class, 'create'])->name('install.done');
 
-// other routes 
-Route::get('/', function () {
-    return view('backend.home');
-})->middleware('adminandsuperadmin')->name('home');
+// home route with auth  
+Route::get('/', [HomeController::class, 'index'])->middleware('adminandsuperadmin')->name('home');
 
 Auth::routes();
 
+// for unauthenticated users
 Route::get('/NoAuth', function () {
     return view('NoAuth');
 });

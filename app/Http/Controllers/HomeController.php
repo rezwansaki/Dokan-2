@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $today = date('d-M-Y');
+        $todayOrders = Order::where('order_date', $today)->sum('pay');
+        $currentTotalEmployees = Employee::count('id');
+        $totalProducts = Product::count('id');
+        return view('backend.home', compact('todayOrders', 'currentTotalEmployees', 'totalProducts'));
     }
 }

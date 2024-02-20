@@ -1,8 +1,9 @@
 # Dokan-2 - Laravel 10 Project
 
-![Alt text](screenshot.jpg "Lara Dokan - Laravel 10 Project")
+![Alt text](screenshot1.png "Dokan-2 - Laravel 10 Project")
+![Alt text](screenshot2.png "Dokan-2 - Laravel 10 Project")
 
-An Inventory Management System for practice. It can help to run a small shop. Such as, paying the employees, managing products, ePOS etc.
+A simple Inventory Management System for practice. Main features are - POS, product and stock management.
 
 ## Instruction:
 
@@ -10,8 +11,9 @@ An Inventory Management System for practice. It can help to run a small shop. Su
     <li>1. Creating a Database 'dokan_2' in your database server</li>
     <li>2. composer update</li>
     <li>3. 'npm install' and then 'npm run dev'</li>
-    <li>5. copy the file .env.example and rename into .env, then give information of database, server and create app key by 'php artisan key:gen' the save the file</li>
-    <li>6. php artisan migrate</li>
+    <li>4. copy the file .env.example and rename into .env, then give information of database, server and create app key by 'php artisan key:gen' the save the file</li>
+    <li>5. php artisan migrate</li>
+    <li>6. The 'created_at' and 'updated_at' fields must be timestamped. After migrating, go to the structure of each table from the database server and make changes from there.</li>
     <li>7. php artisan serve</li> 
     <li>8. First time you have to install this app. After 'serve command' this app will show you installation process automatically. Or you can visit 'install' route for this.</li> 
     <li>9. After installation you will get information to login. You will be a super admin. Now you can access everything.</li> 
@@ -36,7 +38,7 @@ An Inventory Management System for practice. It can help to run a small shop. Su
 
 ### Database that must obey:
 
-The work of the database must be done through migrate, but it cannot be directly modified by going to the database from database server.
+The work of the database must be done through migrate, but it cannot be directly modified by going to the database from database server. 
 
 ### Extra Packages used:
 
@@ -54,7 +56,7 @@ The work of the database must be done through migrate, but it cannot be directly
 
 ### Last Update:
 
-14-Feb-2024
+20-Feb-2024
 
 ### Developed by:
 

@@ -22,8 +22,8 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
-            <p>New Orders</p>
+            <h3>{{ $todayOrders }} Tk.</h3>
+            <p>Today's Sale</p>           
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
@@ -35,8 +35,9 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
-            <p>Bounce Rate</p>
+            {{-- <sup style="font-size: 20px">%</sup> --}}
+            <h3>{{ $currentTotalEmployees }}</h3>
+            <p>Total Employees</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
@@ -48,8 +49,8 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>44</h3>
-            <p>User Registrations</p>
+            <h3> {{ $totalProducts}}</h3>
+            <p>Total Products</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -61,8 +62,8 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>65</h3>
-            <p>Unique Visitors</p>
+            <h3>{{  date('d-M-Y') }}</h3>
+            <p>Today is</p>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
