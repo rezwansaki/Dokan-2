@@ -9,7 +9,7 @@ A simple Inventory Management System for practice. Main features are - POS, prod
 
 <ul>
     <li>1. Creating a Database 'dokan_2' in your database server</li>
-    <li>2. composer update</li>
+    <li>2. composer install (if composer.lock file exists, if not, it will run 'composer update' and create it)</li>
     <li>3. 'npm install' and then 'npm run dev'</li>
     <li>4. copy the file .env.example and rename into .env, then give information of database, server and create app key by 'php artisan key:gen' the save the file</li>
     <li>5. php artisan migrate</li>
